@@ -32,33 +32,39 @@ for b in tqdm([x for x in Old_dir.glob('BLSA_*') if sub_pattern.match(x.name)]):
 #get FLAIR
     flair = Path(str(scans_path) + "/FLAIR/NIFTI/")
     # print(flair)
-    if not flair.exists(): continue
-    try:
-        fn = [x for x in flair.glob('*FLAIR.ni*')]
-        for f in fn: str(f)
-        SymlinkPath = str(New_dir) + "/" + subj_id + "/" + sess_id + "/anat/"+  subj_id + '_' + sess_id +'_FLAIR' + ".nii.gz"
-        print(Create_Bash_Line(f,SymlinkPath))
-    except:
-        print("echo 'Error: no flair for {},{}'".format(subj_id, sess_id))
+    if not flair.exists(): 
+        print("echo 'Subject {} Session {} does not have flair folder'".format(subj_id, sess_id))
+    else:
+        try:
+            fn = [x for x in flair.glob('*FLAIR.ni*')]
+            for f in fn: str(f)
+            SymlinkPath = str(New_dir) + "/" + subj_id + "/" + sess_id + "/anat/"+  subj_id + '_' + sess_id +'_FLAIR' + ".nii.gz"
+            print(Create_Bash_Line(f,SymlinkPath))
+        except:
+            print("echo 'Error: no flair scan for {},{}'".format(subj_id, sess_id))
 
 #get PD
     pd = Path(str(scans_path) + "/PD/NIFTI")
-    if not pd.exists(): continue
-    try:
-        pdn = [x for x in pd.glob('*PD.ni*')]
-        for p in pdn: str(p)
-        SymlinkPath = str(New_dir) + "/" + subj_id + "/" + sess_id + "/anat/"+  subj_id + '_' + sess_id +'_PD' + ".nii.gz"
-        print(Create_Bash_Line(p,SymlinkPath))
-    except:
-        print("echo 'Error: no pd for {},{}'".format(subj_id, sess_id))
+    if not pd.exists(): 
+        print("echo 'Subject {} Session {} does not have pd folder'".format(subj_id, sess_id))
+    else:
+        try:
+            pdn = [x for x in pd.glob('*PD.ni*')]
+            for p in pdn: str(p)
+            SymlinkPath = str(New_dir) + "/" + subj_id + "/" + sess_id + "/anat/"+  subj_id + '_' + sess_id +'_PD' + ".nii.gz"
+            print(Create_Bash_Line(p,SymlinkPath))
+        except:
+            print("echo 'Error: no pd scan for {},{}'".format(subj_id, sess_id))
 
 #get T2
     t2 = Path(str(scans_path) + "/T2/NIFTI")
-    if not t2.exists(): continue
-    try:
-        t2n = [x for x in t2.glob('*T2.ni*')]
-        for t in t2n: str(f)
-        SymlinkPath = str(New_dir) + "/" + subj_id + "/" + sess_id + "/anat/"+  subj_id + '_' + sess_id +'_T2w' + ".nii.gz"
-        print(Create_Bash_Line(t,SymlinkPath))
-    except:
-        print("echo 'Error: no t2 for {},{}'".format(subj_id, sess_id))
+    if not t2.exists():
+        print("echo 'Subject {} Session {} does not have t2 folder'".format(subj_id, sess_id))
+    else:
+        try:
+            t2n = [x for x in t2.glob('*T2.ni*')]
+            for t in t2n: str(f)
+            SymlinkPath = str(New_dir) + "/" + subj_id + "/" + sess_id + "/anat/"+  subj_id + '_' + sess_id +'_T2w' + ".nii.gz"
+            print(Create_Bash_Line(t,SymlinkPath))
+        except:
+            print("echo 'Error: no t2 scan for {},{}'".format(subj_id, sess_id))
