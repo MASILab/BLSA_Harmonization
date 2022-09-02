@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 ln -s /nfs2/harmonization/BLSA/BLSA_5917_06-0_10/SCANS/FLAIR/NIFTI/BLSA_5917_06_FLAIR.nii.gz /nfs2/harmonization/BIDS/BLSA/sub-BLSA5917/ses-060scanner10/anat/sub-BLSA5917_ses-060scanner10_FLAIR.nii.gz
 ln -s /nfs2/harmonization/BLSA/BLSA_5917_06-0_10/SCANS/PD/NIFTI/BLSA_5917_06_PD.nii.gz /nfs2/harmonization/BIDS/BLSA/sub-BLSA5917/ses-060scanner10/anat/sub-BLSA5917_ses-060scanner10_PD.nii.gz
 ln -s /nfs2/harmonization/BLSA/BLSA_5917_06-0_10/SCANS/T2/NIFTI/BLSA_5917_06_T2.nii.gz /nfs2/harmonization/BIDS/BLSA/sub-BLSA5917/ses-060scanner10/anat/sub-BLSA5917_ses-060scanner10_T2w.nii.gz
