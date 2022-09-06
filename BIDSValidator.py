@@ -54,12 +54,12 @@ for index, row in df.iterrows():
 #group_df = df.groupby(by="is_BIDS")
 #for item, value in group_df:
 #    print(value)
-print("\nRan BIDS validator against the {} dataset".format(dir_path.name))
+print("Ran BIDS validator against the {} dataset".format(dir_path.name))
 print("Tested {} files for BIDS formatting.".format(file_num))
 print("Number of files that passed BIDS validation: {}".format(trues))
 
 #print("***{} is a valid BIDS formatted dataset.***".format(dir_path.stem))
-    
+
 
 #print("{} is a valid BIDS formatted directory".format(dir_path.name))
 #else:
