@@ -38,7 +38,8 @@ for b in tqdm([x for x in Old_dir.glob('BLSA_*') if sub_pattern.match(x.name)]):
         # else:
         try:
             # todo: figure out if you want to include FNs and FPs or just FPs in this
-            fn = [x for x in fmri.glob('*_r*.ni*')]
+            fn = [x for x in fmri.glob('*_F*_r*.ni*')]
+            # print(fn)
             run_id = re.split("/NIFTI/",str(fn))
             run_id = re.split("_run",run_id[1])
             # print(run_id[1])
@@ -51,4 +52,4 @@ for b in tqdm([x for x in Old_dir.glob('BLSA_*') if sub_pattern.match(x.name)]):
             SymlinkPath = str(New_dir) + "/" + subj_id + "/" + sess_id + "/func/"+  subj_id + '_' + sess_id +'_run-' + run_id[0] + '_FMRI' + ".nii.gz"
             print(Create_Bash_Line(fn[0],SymlinkPath))
         except:
-            print("echo 'Error: no fmri scan for {},{},{}'".format(subj_id, sess_id))
+            print("echo 'Error: no fmri scan for {},{}'".format(subj_id, sess_id))
