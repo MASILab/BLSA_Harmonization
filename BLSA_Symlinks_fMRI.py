@@ -31,17 +31,24 @@ for b in tqdm([x for x in Old_dir.glob('BLSA_*') if sub_pattern.match(x.name)]):
 
 #get fMRI
     # fmri_pattern = re.compile('/*run[0-9]{1}/NIFTI')
-    for fmri in scans_path.glob('*r*[0-9]/NIFTI'):
+    for fmri in scans_path.glob('*r*/NIFTI'):
         # print(str(fmri))
         # if not f.exists(): 
         #     print("echo 'Subject {} Session {} does not have flair folder'".format(subj_id, sess_id))
         # else:
         try:
-            # todo: figure out if you want to include FNs and FPS or just FPS in this
-            fn = [x for x in fmri.glob('*.ni*')]
-            for f in fn: str(f)
+            # todo: figure out if you want to include FNs and FPs or just FPs in this
+            fn = [x for x in fmri.glob('*_r*.ni*')]
+            run_id = re.split("/NIFTI/",str(fn))
+            run_id = re.split("_run",run_id[1])
+            # print(run_id[1])
+            if len(run_id) > 1:
+                run_id = re.split(".nii.gz",run_id[1])
+            else:
+                run_id = re.split("_r",run_id[0])
+                run_id = re.split(".nii.gz",run_id[1])
             # todo: figure out what to name symlinks for fMRIs
-            SymlinkPath = str(New_dir) + "/" + subj_id + "/" + sess_id + "/anat/"+  subj_id + '_' + sess_id +'_FMRI' + ".nii.gz"
-            print(Create_Bash_Line(f,SymlinkPath))
+            SymlinkPath = str(New_dir) + "/" + subj_id + "/" + sess_id + "/func/"+  subj_id + '_' + sess_id +'_run-' + run_id[0] + '_FMRI' + ".nii.gz"
+            print(Create_Bash_Line(fn[0],SymlinkPath))
         except:
-            print("echo 'Error: no fmri scan for {},{}'".format(subj_id, sess_id))
+            print("echo 'Error: no fmri scan for {},{},{}'".format(subj_id, sess_id))
