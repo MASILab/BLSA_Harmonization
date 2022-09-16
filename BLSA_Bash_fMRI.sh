@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 ln -s /nfs2/harmonization/BLSA/BLSA_5743_10-0_10/SCANS/run2/NIFTI/BLSA_5743_10-0_10_FP_run2.nii.gz /nfs2/harmonization/BIDS/BLSA/sub-BLSA5743/ses-100scanner10/func/sub-BLSA5743_ses-100scanner10_run-2_fMRI-FP.nii.gz
 ln -s /nfs2/harmonization/BLSA/BLSA_5743_10-0_10/SCANS/run1/NIFTI/BLSA_5743_10-0_10_FP_run1.nii.gz /nfs2/harmonization/BIDS/BLSA/sub-BLSA5743/ses-100scanner10/func/sub-BLSA5743_ses-100scanner10_run-1_fMRI-FP.nii.gz
 ln -s /nfs2/harmonization/BLSA/BLSA_6158_09-0_10/SCANS/run3/NIFTI/BLSA_6158_09-0_10_FP_run3.nii.gz /nfs2/harmonization/BIDS/BLSA/sub-BLSA6158/ses-090scanner10/func/sub-BLSA6158_ses-090scanner10_run-3_fMRI-FP.nii.gz
