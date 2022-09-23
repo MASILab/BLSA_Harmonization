@@ -43,7 +43,7 @@ for b in tqdm([x for x in Old_dir.glob('BLSA_*') if sub_pattern.match(x.name)]):
                         run_id = re.split("_r",run_id[0])
                         run_id = re.split(".nii.gz",run_id[1])
                     # create symlink path and name
-                    SymlinkPath = str(New_dir) + "/" + subj_id + "/" + sess_id + "/func/"+  subj_id + '_' + sess_id +'_run-' + run_id[0] + '_fMRI-FN' + ".nii.gz"
+                    SymlinkPath = str(New_dir) + "/" + subj_id + "/" + sess_id + "/func/"+  subj_id + '_' + sess_id +'_run-' + run_id[0] + '_task-FN_fMRI' + ".nii.gz"
                     # get bash line to create symlink and print it out
                     print(Create_Bash_Line(fn[0],SymlinkPath))
                 else:
@@ -57,7 +57,7 @@ for b in tqdm([x for x in Old_dir.glob('BLSA_*') if sub_pattern.match(x.name)]):
                             run_id = re.split("_r",run_id[0])
                             run_id = re.split(".nii.gz",run_id[1])
                         # create symlink path and name
-                        SymlinkPath = str(New_dir) + "/" + subj_id + "/" + sess_id + "/func/"+  subj_id + '_' + sess_id +'_run-' + run_id[0] + '_fMRI-FP' + ".nii.gz"
+                        SymlinkPath = str(New_dir) + "/" + subj_id + "/" + sess_id + "/func/"+  subj_id + '_' + sess_id +'_run-' + run_id[0] + '_task-FP_fMRI' + ".nii.gz"
                         # get bash line to create symlink and print it out
                         print(Create_Bash_Line(fp[0],SymlinkPath))
             except:
