@@ -51,8 +51,8 @@ trues = df['is_BIDS'].values.sum()
 for index, row in df.iterrows():
     if row['is_BIDS'] == False:
         print("File:", row['Filepath'], "is not BIDS validated")
-#group_df = df.groupby(by="is_BIDS")
-#for item, value in group_df:
+# group_df = df.groupby(by="is_BIDS")
+# for item, value in group_df:
 #    print(value)
 print("Ran BIDS validator against the {} dataset".format(dir_path.name))
 print("Tested {} files for BIDS formatting.".format(file_num))
